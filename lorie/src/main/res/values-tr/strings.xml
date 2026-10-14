@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lorie_app_name">NEXUS X11</string>
+    <string name="nexus_windows_start">Windows 10 Başlat</string>
+    <string name="not_connected">X11 bağlantısı bekleniyor</string>
+    <string name="preferences_button_text">Ayarlar</string>
+    <string name="help_button_text">Yardım</string>
+    <string name="exit_button_text">Çıkış</string>
+    <string name="displays_button_text">Ekranlar</string>
+    <string name="displays_dialog_title">Ekranlar</string>
+    <string name="displays_dialog_empty">Başka açık ekran yok</string>
+    <string name="lorie_pref_main">Ayarlar</string>
+    <string name="lorie_pref_output">Görüntü</string>
+    <string name="lorie_pref_pointer">İşaretçi</string>
+    <string name="lorie_pref_kbd">Klavye</string>
+    <string name="lorie_pref_other">Diğer</string>
+    <string name="lorie_pref_version">Sürüm</string>
+    <string name="lorie_pref_fullscreen">Tam ekran</string>
+    <string name="lorie_pref_fullscreen_summary">Tam ekran görünümünü aç veya kapat</string>
+    <string name="lorie_pref_forceOrientation">Ekran yönü</string>
+    <string name="lorie_pref_displayResolutionMode">Ekran çözünürlüğü modu</string>
+    <string name="lorie_pref_displayScale">Ekran ölçeği, %</string>
+    <string name="lorie_pref_displayResolutionExact">Ekran çözünürlüğü</string>
+    <string name="lorie_pref_displayResolutionCustom">Özel ekran çözünürlüğü</string>
+    <string name="lorie_pref_touchMode">Dokunmatik giriş modu</string>
+    <string name="lorie_pref_showAdditionalKbd">Ek klavyeyi göster</string>
+    <string name="lorie_pref_clipboardEnable">Pano paylaşımı</string>
+    <string name="lorie_pref_requestNotificationPermission">Bildirim izni iste</string>
+    <string name="lorie_pref_screenIdleTimeout">Ekran zaman aşımı</string>
+    <string name="lorie_notification_open_preferences">Ayarlar</string>
+    <string name="lorie_notification_exit">Çıkış</string>
+    <string name="lorie_notification_restart_activity">Yeniden başlat</string>
+    <string name="lorie_notification_toggle_fullscreen">Tam ekranı değiştir</string>
+    <string name="lorie_notification_toggle_soft_keyboard">Ekran klavyesini değiştir</string>
+</resources>

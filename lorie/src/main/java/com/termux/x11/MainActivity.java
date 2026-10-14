@@ -315,45 +315,28 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main_activity);
         findViewById(R.id.nexus_windows_start).setOnClickListener(v -> {
+            final String permission = "com.termux.permission.RUN_COMMAND";
+            if (checkSelfPermission(permission) != PERMISSION_GRANTED) {
+                requestPermissions(new String[] {permission}, 4127);
+                Toast.makeText(this, "Termux komut iznini verin; ardından tekrar basın.", Toast.LENGTH_LONG).show();
+                return;
+            }
             try {
-                Intent command = new Intent();
-                command.setClassName(
-                    "com.termux",
-                    "com.termux.app.RunCommandService"
-                );
-                command.setAction(
-                    "com.termux.RUN_COMMAND"
-                );
-                command.putExtra(
-                    "com.termux.RUN_COMMAND_PATH",
-                    "/data/data/com.termux/files/usr/bin/bash"
-                );
-                command.putExtra(
-                    "com.termux.RUN_COMMAND_ARGUMENTS",
-                    new String[] {
-                        "/data/data/com.termux/files/home/nexus-x11/windows-baslat.sh"
-                    }
-                );
-                command.putExtra(
-                    "com.termux.RUN_COMMAND_WORKDIR",
-                    "/data/data/com.termux/files/home/Windows10"
-                );
-                command.putExtra(
-                    "com.termux.RUN_COMMAND_BACKGROUND",
-                    true
-                );
+                Intent command = new Intent("com.termux.RUN_COMMAND");
+                command.setClassName("com.termux", "com.termux.app.RunCommandService");
+                command.putExtra("com.termux.RUN_COMMAND_PATH", "/data/data/com.termux/files/usr/bin/bash");
+                command.putExtra("com.termux.RUN_COMMAND_ARGUMENTS", new String[] {
+                        "/data/data/com.termux/files/home/nexus-x11/windows-baslat.sh"});
+                command.putExtra("com.termux.RUN_COMMAND_WORKDIR", "/data/data/com.termux/files/home/Windows10");
+                command.putExtra("com.termux.RUN_COMMAND_BACKGROUND", true);
                 startService(command);
-                android.widget.Toast.makeText(
-                    this,
-                    "Windows başlatma isteği gönderildi",
-                    android.widget.Toast.LENGTH_SHORT
-                ).show();
+                Toast.makeText(this, "Windows başlatma isteği gönderildi", Toast.LENGTH_SHORT).show();
+            } catch (SecurityException e) {
+                Log.e("NEXUS-X11", "Termux komut izni reddedildi", e);
+                Toast.makeText(this, "Komut izni reddedildi. Android uygulama izinlerini kontrol edin.", Toast.LENGTH_LONG).show();
             } catch (Exception e) {
-                android.widget.Toast.makeText(
-                    this,
-                    "Başlatma hatası: " + e.getMessage(),
-                    android.widget.Toast.LENGTH_LONG
-                ).show();
+                Log.e("NEXUS-X11", "Windows başlatma hatası", e);
+                Toast.makeText(this, "Başlatma hatası: " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 
