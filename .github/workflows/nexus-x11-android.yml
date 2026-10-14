@@ -1,6 +1,9 @@
 name: NEXUS X11 Android APK
 
 on:
+  push:
+    branches:
+      - nexus-x11-gelistirme
   workflow_dispatch:
 
 permissions:
