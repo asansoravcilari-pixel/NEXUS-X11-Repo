@@ -314,6 +314,49 @@ public class MainActivity extends AppCompatActivity {
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main_activity);
+        findViewById(R.id.nexus_windows_start).setOnClickListener(v -> {
+            try {
+                Intent command = new Intent();
+                command.setClassName(
+                    "com.termux",
+                    "com.termux.app.RunCommandService"
+                );
+                command.setAction(
+                    "com.termux.RUN_COMMAND"
+                );
+                command.putExtra(
+                    "com.termux.RUN_COMMAND_PATH",
+                    "/data/data/com.termux/files/usr/bin/bash"
+                );
+                command.putExtra(
+                    "com.termux.RUN_COMMAND_ARGUMENTS",
+                    new String[] {
+                        "/data/data/com.termux/files/home/nexus-x11/windows-baslat.sh"
+                    }
+                );
+                command.putExtra(
+                    "com.termux.RUN_COMMAND_WORKDIR",
+                    "/data/data/com.termux/files/home/Windows10"
+                );
+                command.putExtra(
+                    "com.termux.RUN_COMMAND_BACKGROUND",
+                    true
+                );
+                startService(command);
+                android.widget.Toast.makeText(
+                    this,
+                    "Windows başlatma isteği gönderildi",
+                    android.widget.Toast.LENGTH_SHORT
+                ).show();
+            } catch (Exception e) {
+                android.widget.Toast.makeText(
+                    this,
+                    "Başlatma hatası: " + e.getMessage(),
+                    android.widget.Toast.LENGTH_LONG
+                ).show();
+            }
+        });
+
         applyWindowSettings();
 
         frm = findViewById(R.id.frame);
