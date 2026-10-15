@@ -61,7 +61,7 @@ jobs:
 
       - name: APK dosyalarini yukle
         if: success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: nexus-x11-debug-apk
           path: lorie-app/build/outputs/apk/**/*.apk
